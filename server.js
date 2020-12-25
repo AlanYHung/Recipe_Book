@@ -1,90 +1,62 @@
 'use strict';
 
-// Server dependency setup
+
+
+
+////// ---- Server dependency setup -------////
 
 const express = require('express');
 const superagent = require('superagent');
+const pg =require('pg');
 require('dotenv').config();
 
-// Server constant variables
+///// ----- Server constant variables ----- ////
 
 const PORT = process.env.PORT  || 9999;
+const DATABASE_URL = process.env.DATABASE_URL;
+const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
-// Dependency variables setup
+
+///// ---- Dependency variables setup ----- ////
+const client = new pg.Client(DATABASE_URL);
 
 const app = express();
 
-//ejs setup
+
+//// ----  ejs setup ----- /////
 
 app.set('view engine', 'ejs');
 app.use(express.static("./public"));
 
-// Middleware setup
+
+///// ---- Middleware setup ---- ////
+
+
 // const cors = require('cors');
 // app.use(cors());
 
 
-// Server startup
+//// ---- Server startup ---- ////
 
-app.listen(PORT, ()=>{
-  console.log(`App is listening at ${PORT}`)
-})
 
-// Server routes
+client.connect().then(() => {
+  app.listen(PORT, ()=>{
+    console.log(`App is listening at ${PORT}`)
+  })
+}).catch(error => console.error(error));
+
+
+///// ---- Server routes ---- /////
 
 app.get('/', getLoginPage);
-
-// Object constructors
-
-// callback functions
-
-function getLoginPage(request, response){
-  response.send('Server has started');
-}
-
-// SQL query functions
-
-// Error catching - server
-
-app.use('*', (request, response)=>{
-  response.status(404).send('Sorry something went wrong')
-})
-
-// error catching - routes
-
-//const pg =require('pg');
-//app.use(express.urlencoded({extended: true}));
+app.get('/recipes', getRecipe);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Object Constructor
+//// ---- Object constructors ----- ////
 
 // function RecipeObject(){
-//   this.user =
+//   this.user_id =
 //   this.recipe_id =
 //   this.title =
 //   this.image =
@@ -93,3 +65,62 @@ app.use('*', (request, response)=>{
 //   this.ingredients =
 //   this.instructions =
 // }
+
+
+// callback functions
+
+function getLoginPage(request, response){
+  response.send('Server has started');
+}
+
+function getRecipe(request, response){
+  const query = request.query;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${RECIPE_API_KEY}`
+  superagent.get(url).then(incomingRecipe =>{
+    
+  })
+}
+
+//// ---- SQL query functions ----/////
+
+//// ---- Error catching - server ---- ////
+
+
+client.on('error', error => console.error(error));
+app.use('*', (request, response)=>{
+  response.status(404).send('Sorry something went wrong')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
