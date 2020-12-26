@@ -47,26 +47,34 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 
 ### Features
 #### Server Setup
-  * Estimate of time needed to complete: <u></u>
+  * Estimate of time needed to complete: <u>30 Min</u>
+  * Start Date: <u>12/26/20</u>
   * Start time: <u></u>
+  * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
 
 #### Header Partial
   * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
   * Start time: <u></u>
+  * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
 
 #### Navigation Partial
   * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
   * Start time: <u></u>
+  * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
 
 #### Footer Partial
   * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
   * Start time: <u></u>
+  * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
 
