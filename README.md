@@ -25,6 +25,10 @@ This program is a basic full-stack application that allows you to search for Foo
 CSS Stylesheets for the front end display pages rendered by ejs. Back end server to make api calls and run the entire application.  Javascript and JQuery to add additional functionality.
 
 ## Change Log
+* Server Initial Setup Completed (12/26/20 Driver:WT Nav:SM Nav:AYH)
+* Header Partial Setup - h1 tag and nav tag id attribute (12/26/20 AYH)
+* Header Partial CSS setup (12/26/20 AYH)
+* Login Page with Animated Refridgerator designed (12/26/20 AYH)
 
 ## Postgress SQL Database
 ### Database Name: recipe_book
@@ -46,35 +50,34 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * [w3schools.com](https://www.w3schools.com/)
 
 ### Features
+#### Template
+  * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
+  * Start time: <u></u>
+  * Finish Date: <u></u>
+  * Finish time: <u></u>
+  * Actual time needed to complete: <u></u>
+
 #### Server Setup
   * Estimate of time needed to complete: <u>30 Min</u>
   * Start Date: <u>12/26/20</u>
-  * Start time: <u></u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
+  * Start time: <u>10:00 am</u>
+  * Finish Date: <u>12/26/20</u>
+  * Finish time: <u>11:00 am</u>
+  * Actual time needed to complete: <u>1 Hour</u>
 
-#### Header Partial
-  * Estimate of time needed to complete: <u></u>
-  * Start Date: <u></u>
-  * Start time: <u></u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
+#### Header Partial - h1 and nav tag id
+  * Estimate of time needed to complete: <u>10 min</u>
+  * Start Date: <u>12/26/20</u>
+  * Start time: <u>10:00 am</u>
+  * Finish Date: <u>12/26/20</u>
+  * Finish time: <u>10:10 am</u>
+  * Actual time needed to complete: <u>10 minutes</u>
 
-#### Navigation Partial
-  * Estimate of time needed to complete: <u></u>
-  * Start Date: <u></u>
-  * Start time: <u></u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
-
-#### Footer Partial
-  * Estimate of time needed to complete: <u></u>
-  * Start Date: <u></u>
-  * Start time: <u></u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
-
+#### Login Page with Animated Fridge
+  * Estimate of time needed to complete: <u>1 Hour</u>
+  * Start Date: <u>12/26/20</u>
+  * Start time: <u>10:10 am</u>
+  * Finish Date: <u>12/26/20</u>
+  * Finish time: <u>2:45 pm</u>
+  * Actual time needed to complete: <u>4 hours 35 minutes</u>

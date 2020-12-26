@@ -70,7 +70,7 @@ app.get('/recipes', getRecipe);
 // callback functions
 
 function getLoginPage(request, response){
-  response.send('Server has started');
+  response.render('login.ejs');
 }
 
 function getRecipe(request, response){

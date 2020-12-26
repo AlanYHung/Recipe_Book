@@ -1,0 +1,113 @@
+/* ======================================================================= */
+/* ======================= Header Nav Bar Styling ======================== */
+/* ======================================================================= */
+
+#nav_login{
+  display: none;
+}
+
+/* ======================================================================= */
+/* ========================= Login Body Styling ========================== */
+/* ======================================================================= */
+
+#login_title{
+  width: 100%;
+  height: 5%;
+  text-align: center;
+  font-size: large;
+  padding-top: 50px;
+  margin-bottom: -100px;
+}
+
+#login_body{
+  width: 100%;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fridge_background{
+  width: 286px;
+  height: 478px;
+  background-image: url("../../images/Fridge_Internal.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#left_fridge_door_open{
+  width: 109px;
+  height: 478px;
+  background-image: url("../../images/Fridge_Left_Door_Open.jpg");
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#right_fridge_door_open{
+  width: 175px;
+  height: 478px;
+  background-image: url("../../images/Fridge_Right_Door_Open.jpg");
+  background-repeat: no-repeat;
+  display: none;
+}
+
+/* ======================================================================= */
+/* ======================== Fridge Door Animation ======================== */
+/* ======================================================================= */
+
+#left_fridge_door{
+  width: 109px;
+  height: 478px;
+  background-image: url("../../images/Fridge_Left_Door.jpg");
+  background-repeat: no-repeat;
+  transform-style: preserve-3d;
+  transform-origin: 0 50%;
+  /* transition: all 0.3s ease; */ /* Stretch Goal: Need to transition open doors */
+}
+
+#right_fridge_door{
+  width: 175px;
+  height: 478px;
+  background-image: url("../../images/Fridge_Right_Door.jpg");
+  background-repeat: no-repeat;
+  margin-left: 2px;
+  transform-style: preserve-3d;
+  transform-origin: 100% 50%;
+  /* transition: all 0.3s ease; */ /* Stretch Goal: Need to transition open doors */
+}
+
+/* ======================================================================= */
+/* ========================= Login Form Styling ========================== */
+/* ======================================================================= */
+
+.login_form{
+  width: 270px;
+  position: absolute;
+}
+
+#login_form_f{
+  height: 100px;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+#login_form_fs{
+  height: 83px;
+  padding: 5px;
+  border: black 1px solid;
+}
+
+#login_form_input{
+  width: 259px;
+  height: 23px;
+  top: 25px;
+}
+
+#login_form_button{
+  width: 259px;
+  height: 23px;
+  top: 50px;
+}
+
