@@ -8,6 +8,7 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg =require('pg');
+const cors = require('cors');
 require('dotenv').config();
 
 ///// ----- Server constant variables ----- ////
@@ -16,6 +17,9 @@ const PORT = process.env.PORT  || 9999;
 const DATABASE_URL = process.env.DATABASE_URL;
 const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
+///// ----- global variable ------ //////
+
+var userName = '';
 
 ///// ---- Dependency variables setup ----- ////
 const client = new pg.Client(DATABASE_URL);
@@ -30,10 +34,10 @@ app.use(express.static("./public"));
 
 
 ///// ---- Middleware setup ---- ////
+app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 
-// const cors = require('cors');
-// app.use(cors());
 
 
 //// ---- Server startup ---- ////
@@ -51,6 +55,7 @@ client.connect().then(() => {
 app.get('/', getLoginPage);
 app.get('/search', getSearchResults);
 app.get('/recipes', getRecipe);
+app.post('/login', loginInfo);
 
 
 
@@ -67,29 +72,65 @@ app.get('/recipes', getRecipe);
 //   this.instructions =
 // }
 
+function ResultObject(data){
+  this.id = data.id;
+  this.title = data.title;
+  this.image = data.image
+}
 
-// callback functions
+
+//// ----- callback functions ----- //////
 
 function getLoginPage(request, response){
+  userName = '';
   response.render('login.ejs');
 }
 
 function getSearchResults(request, response){
   response.render('search.ejs');
 }
-
+ 
+function loginInfo(request, response){  
+  userName = request.body.user_login_id.toLowerCase();
+  response.redirect('/search');
+}
 
 function getRecipe(request, response){
-  const query = request.query;
-  const url = 'https://api.spoonacular.com/recipes/complexSearch'
-  superagent.get(url)
-    .query({
-      api: RECIPE_API_KEY,
-      query: ''
-    })
-    .then(incomingRecipe =>{
-    
-  })
+  let switching = false;
+
+  if(switching){
+    const url = 'https://api.spoonacular.com/recipes/complexSearch'
+    superagent.get(url)
+      .query({
+        apiKey: RECIPE_API_KEY,
+        query: 'omelette'
+      })
+      .then(incomingRecipe =>{
+        const recipeObj = incomingRecipe.body.results;
+        const recipeData = recipeObj.map(recipeToShow => new ResultObject(recipeToShow));
+        console.log(recipeData);
+      })
+      .catch(error => console.error(error));
+  }
+  else{
+    const missed = [];
+    const url = 'https://api.spoonacular.com/recipes/findByIngredients'
+    superagent.get(url)
+      .query({
+        apiKey: RECIPE_API_KEY,
+        ingredients: 'apples,sugar,flour' 
+      })
+      .then(incominIngredients =>{
+        const ingredientsObj = incominIngredients.body;
+        const missedIngredients = ingredientsObj.map(missedRecipe =>{
+          missed.push(missedRecipe);
+        });
+        console.log(missedRecipe);
+        
+      })
+      .catch(error => console.error(error));
+  }
+  
 }
 
 //// ---- SQL query functions ----/////
