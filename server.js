@@ -39,7 +39,7 @@ app.get('/', getLoginPage);
 // callback functions
 
 function getLoginPage(request, response){
-  response.send('Server has started');
+  response.render('login.ejs');
 }
 
 // SQL query functions
