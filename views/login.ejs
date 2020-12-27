@@ -8,22 +8,23 @@
     <%- include("./partials/header", {headerTitle: "Recipe Book - Login",
                                       navID: "nav_login"}) %>
   <main>
-    <section id="login_title">What is in the Fridge?</section>
-    <section id="login_body">
-      <div id="left_fridge_door_open"></div>
-      <div id="fridge_background">
-        <form id="login_form_f" class="login_form" action="">
-          <fieldset id="login_form_fs" class="login_form" form="login_form_f">
-            <Legend class="login_form">Please enter your User Name:</Legend>
-            <input id="login_form_input" class="login_form" type="text" name="user_login_id">
-            <button id="login_form_button" class="login_form">Login</button>
-          </fieldset>
-        </form>
-        <div id="left_fridge_door"></div>
-        <div id="right_fridge_door"></div>
-      </div>
-      <div id="right_fridge_door_open"></div>
-    </section>
+    <div id="login_body">
+      <section id="fridge_body">
+        <div id="left_fridge_door_open"></div>
+        <div id="fridge_background">
+          <form id="login_form_f" class="login_form" action="">
+            <fieldset id="login_form_fs" class="login_form" form="login_form_f">
+              <Legend class="login_form">Please enter your User Name:</Legend>
+              <input id="login_form_input" class="login_form" type="text" name="user_login_id">
+              <button id="login_form_button" class="login_form">Login</button>
+            </fieldset>
+          </form>
+          <div id="left_fridge_door"></div>
+          <div id="right_fridge_door"></div>
+        </div>
+        <div id="right_fridge_door_open"></div>
+      </section>
+    </div>
   </main>
   <%- include("./partials/footer") %>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"

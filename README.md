@@ -1,7 +1,7 @@
 # What's in our Fridge? A Recipe Cook Book
 
 **Author**: Alan Hung, Nick Abramowicz, Seid Mohamed, Wondwosen Tsige
-**Version**: 0.0.0
+**Version**: 0.2.4
 
 ## Overview
 This program is a basic full-stack application that allows you to search for Food Recipes based on ingredients and/or food names.  The app will let users personalize a cook book by allowing them to save recipes to their accounts, modify recipes, and share recipes for ratings if they so choose.
@@ -26,9 +26,13 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 
 ## Change Log
 * Server Initial Setup Completed (12/26/20 Driver:WT Nav:SM Nav:AYH)
+* SQL Database Setup (12/26/20 D:SM Nav:WT)
 * Header Partial Setup - h1 tag and nav tag id attribute (12/26/20 AYH)
 * Header Partial CSS setup (12/26/20 AYH)
 * Login Page with Animated Refridgerator designed (12/26/20 AYH)
+* Search Page Setup and Styling (12/26/20 D:WT Nav:AYH)
+* Login Page Styled Background - Animated Gif + Kitchen Tile (12/27/20 AYH)
+* Navigation Bar CSS styling (12/27/20 AYH)
 
 ## Postgress SQL Database
 ### Database Name: recipe_book
@@ -48,6 +52,7 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * [Recipe Book Domain Model](./images/Recipe_Book_Domain.PNG)
   * [Recipe Book Wireframe](./images/Wireframe.PNG)
   * [w3schools.com](https://www.w3schools.com/)
+  * [GIPHY](https://giphy.com/)
 
 ### Features
 #### Template
@@ -81,3 +86,19 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * Finish Date: <u>12/26/20</u>
   * Finish time: <u>2:45 pm</u>
   * Actual time needed to complete: <u>4 hours 35 minutes</u>
+
+#### API Search Functionality - Server
+  * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
+  * Start time: <u></u>
+  * Finish Date: <u></u>
+  * Finish time: <u></u>
+  * Actual time needed to complete: <u></u>
+
+#### API Search Functionality - Frontend
+  * Estimate of time needed to complete: <u></u>
+  * Start Date: <u></u>
+  * Start time: <u></u>
+  * Finish Date: <u></u>
+  * Finish time: <u></u>
+  * Actual time needed to complete: <u></u>
