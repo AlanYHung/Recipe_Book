@@ -2,33 +2,24 @@
 
 let $leftFridgeDoor = $('#left_fridge_door');
 let $rightFridgeDoor = $('#right_fridge_door');
+let $leftFridgeDoorOpen = $('#left_fridge_door_open');
+let $rightFridgeDoorOpen = $('#right_fridge_door_open');
 
-// Stretch Goal get Fridge doors to close
+$leftFridgeDoor.on('click', openFridgeDoor);
+$rightFridgeDoor.on('click', openFridgeDoor);
+$leftFridgeDoorOpen.on('click', closeFridgeDoor);
+$rightFridgeDoorOpen.on('click', closeFridgeDoor);
 
-// let $leftFridgeDoorOpen = $('#left_fridge_door_open');
-// let $rightFridgeDoorOpen = $('#right_fridge_door_open');
-
-$leftFridgeDoor.on('click', openLeftFridgeDoor);
-$rightFridgeDoor.on('click', openRightFridgeDoor);
-// $leftFridgeDoorOpen.on('click', closeLeftFridgeDoor);
-// $rightFridgeDoorOpen.on('click', closeRightFridgeDoor);
-
-function openLeftFridgeDoor(openEvent){
-  openEvent.target.style.transform = 'rotateY(-90deg)';
+function openFridgeDoor(){
+  $leftFridgeDoor.hide();
+  $rightFridgeDoor.hide();
   $('#left_fridge_door_open').show();
-}
-
-function openRightFridgeDoor(openEvent){
-  openEvent.target.style.transform = 'rotateY(90deg)';
   $('#right_fridge_door_open').show();
 }
 
-// function closeLeftFridgeDoor(closeEvent){
-//   closeEvent.target.style.transform = 'rotateY(-180deg)';
-//   $('#left_fridge_door_open').hide();
-// }
-
-// function closeRightFridgeDoor(closeEvent){
-//   closeEvent.target.style.transform = 'rotateY(-90deg)';
-//   $('#right_fridge_door_open').hide();
-// }
+function closeFridgeDoor(){
+  $leftFridgeDoor.show();
+  $rightFridgeDoor.show();
+  $('#left_fridge_door_open').hide();
+  $('#right_fridge_door_open').hide();
+}

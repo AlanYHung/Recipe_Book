@@ -81,8 +81,13 @@ function getSearchResults(request, response){
 
 function getRecipe(request, response){
   const query = request.query;
-  const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${RECIPE_API_KEY}`
-  superagent.get(url).then(incomingRecipe =>{
+  const url = 'https://api.spoonacular.com/recipes/complexSearch'
+  superagent.get(url)
+    .query({
+      api: RECIPE_API_KEY,
+      query: ''
+    })
+    .then(incomingRecipe =>{
     
   })
 }
