@@ -49,6 +49,7 @@ client.connect().then(() => {
 ///// ---- Server routes ---- /////
 
 app.get('/', getLoginPage);
+app.get('/search', getSearchResults);
 app.get('/recipes', getRecipe);
 
 
@@ -72,6 +73,11 @@ app.get('/recipes', getRecipe);
 function getLoginPage(request, response){
   response.render('login.ejs');
 }
+
+function getSearchResults(request, response){
+  response.render('search.ejs');
+}
+
 
 function getRecipe(request, response){
   const query = request.query;
