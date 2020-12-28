@@ -1,7 +1,7 @@
 # What's in our Fridge? A Recipe Cook Book
 
 **Author**: Alan Hung, Nick Abramowicz, Seid Mohamed, Wondwosen Tsige
-**Version**: 0.2.4
+**Version**: 0.4.7
 
 ## Overview
 This program is a basic full-stack application that allows you to search for Food Recipes based on ingredients and/or food names.  The app will let users personalize a cook book by allowing them to save recipes to their accounts, modify recipes, and share recipes for ratings if they so choose.
@@ -33,6 +33,12 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 * Search Page Setup and Styling (12/26/20 D:WT Nav:AYH)
 * Login Page Styled Background - Animated Gif + Kitchen Tile (12/27/20 AYH)
 * Navigation Bar CSS styling (12/27/20 AYH)
+* User Login and Logout functionality (12/27/20 D:SM Nav:AYH)
+* Dish API Search and Object Storage (12/27/20 SM)
+* Ingredients API Search and Object Storage (WIP) (12/27/20 D:SM Nav:WT)
+* Added Drop Down to search page to select searching method (12/27/20 AYH)
+* Added and Styled Dish Search Form (12/27/20 AYH)
+* Added and Styled Ingredient Search Form (12/27/20 AYH)
 
 ## Postgress SQL Database
 ### Database Name: recipe_book
@@ -87,18 +93,29 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * Finish time: <u>2:45 pm</u>
   * Actual time needed to complete: <u>4 hours 35 minutes</u>
 
+#### User Login/Logout Functionality - Server
+  * Estimate of time needed to complete: <u>30 Minutes</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>11:00 am</u>
+  * Finish Date: <u>12/27/20</u>
+  * Finish time: <u>11:44 pm</u>
+  * Actual time needed to complete: <u>44 minutes</u>
+
 #### API Search Functionality - Server
-  * Estimate of time needed to complete: <u></u>
-  * Start Date: <u></u>
-  * Start time: <u></u>
+  * Estimate of time needed to complete: <u>2 Hours</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>11:45 pm</u>
+  * Lunch stop: <u>1:33 pm</u>
+  * Work Continuation: <u>2:45pm</u>
+  * Day End: <u>3:30 pm</u>
   * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
 
 #### API Search Functionality - Frontend
-  * Estimate of time needed to complete: <u></u>
-  * Start Date: <u></u>
-  * Start time: <u></u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
+  * Estimate of time needed to complete: <u>2 Hours</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>11:00 am</u>
+  * Finish Date: <u>12/27/20</u>
+  * Finish time: <u>6:11 pm</u>
+  * Actual time needed to complete: <u>7 Hours</u>
