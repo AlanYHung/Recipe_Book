@@ -57,6 +57,7 @@ app.get('/search', getSearch);
 app.get('/recipes', getRecipe);
 app.post('/login', loginInfo);
 app.get('/results', getResults);
+app.get('/about-us', getTeamInfo);
 
 
 
@@ -85,6 +86,14 @@ function ResultObject(data){
 function getLoginPage(request, response){
   userName = '';
   response.render('login.ejs');
+}
+
+function getSearchResults(request, response){
+  response.render('search.ejs');
+}
+
+function getTeamInfo(request, response){
+  response.render('about-us.ejs');
 }
 
 function loginInfo(request, response){  
