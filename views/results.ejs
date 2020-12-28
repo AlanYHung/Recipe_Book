@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="./styles/modules/results.css" type="text/css">
+  </head>
+  <body>
+    <%- include("./partials/header", {headerPurpose: "Results",
+                                      navID: "nav_login"}) %>
+    <main>
+      <section id="results_body">
+        <div id="results_body_left"></div>
+        <div id="results_body_center">
+          <ul id="results_display_body">
+            <%- include('./partials/results_li') %>
+          </ul>
+        </div>
+        <div id="results_body_right"></div>
+      </section>
+    </main>
+    <%- include("./partials/footer") %>
+  </body>
+</html>
