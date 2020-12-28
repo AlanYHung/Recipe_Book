@@ -56,6 +56,8 @@ app.get('/', getLoginPage);
 app.get('/search', getSearchResults);
 app.get('/recipes', getRecipe);
 app.post('/login', loginInfo);
+app.get('/about-us', getTeamInfo);
+
 
 
 
@@ -88,6 +90,10 @@ function getLoginPage(request, response){
 
 function getSearchResults(request, response){
   response.render('search.ejs');
+}
+
+function getTeamInfo(request, response){
+  response.render('about-us.ejs');
 }
  
 function loginInfo(request, response){  
