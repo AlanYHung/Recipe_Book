@@ -74,10 +74,18 @@ app.get('/about-us', getTeamInfo);
 //   this.instructions =
 // }
 
-function ResultObject(data){
+function DishObject(data){
   this.id = data.id;
   this.title = data.title;
   this.image = data.image
+}
+
+function IngredientObj(data, missedIngredients, usedIngredients){
+  this.id = data.id;
+  this.title = data.title;
+  this.image = data.image;
+  this.missedIngredients = missedIngredients;
+  this.usedIngredients = usedIngredients;
 }
 
 
@@ -117,7 +125,7 @@ function getRecipe(request, response){
       })
       .then(incomingRecipe =>{
         const recipeObj = incomingRecipe.body.results;
-        const recipeData = recipeObj.map(recipeToShow => new ResultObject(recipeToShow));
+        const recipeData = recipeObj.map(recipeToShow => new DishObject(recipeToShow));
         console.log(recipeData);
       })
       .catch(error => console.error(error));
@@ -130,12 +138,10 @@ function getRecipe(request, response){
         apiKey: RECIPE_API_KEY,
         ingredients: 'apples,sugar,flour' 
       })
-      .then(incominIngredients =>{
-        const ingredientsObj = incominIngredients.body;
-        const missedIngredients = ingredientsObj.map(missedRecipe =>{
-          missed.push(missedRecipe);
-        });
-        console.log(missedRecipe);
+      .then(incomingIngredients =>{
+        const ingredientsObj = incomingIngredients.body;
+        const ingredientsResults = ingredientsObj.map(ingredientsResultsObj => new IngredientObj(ingredientsResultsObj));
+        console.log(ingredientsResults);
         
       })
       .catch(error => console.error(error));
