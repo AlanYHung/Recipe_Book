@@ -91,7 +91,7 @@
 }
 
 #dish_form_button, #ingredients_form_button{
-  width: 50%;
+  width: 60%;
 }
 
 /* ======================================================================= */
@@ -114,7 +114,7 @@
 
 @media(min-width:470px){
   #dish_form_button{
-    width: 40%;
+    width: 50%;
   }
 }
 
@@ -123,7 +123,7 @@
 /* ======================================================================= */
 
 #ingredients_form_label{
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 #add_remove_buttons{
@@ -156,4 +156,10 @@
 
 #ingredients_form_button{
   width: 135px;
+}
+
+@media(min-width:900px){
+  #ingredients_form_label{
+    margin-bottom: 0;
+  }
 }

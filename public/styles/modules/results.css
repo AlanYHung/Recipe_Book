@@ -1,0 +1,34 @@
+#results_body{
+  width: 100%;
+  height: 100%;
+  background-image: url('../../images/Dishes_Background.jpg');
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#results_body_left, #results_body_right{
+  width: 20%;
+  height: 100%;
+  background-image: url('https://media.giphy.com/media/3JgtnXdRhSflK/giphy.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#results_body_center{
+  width: 60%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+#results_display_body{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

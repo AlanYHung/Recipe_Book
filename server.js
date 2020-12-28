@@ -7,7 +7,7 @@
 
 const express = require('express');
 const superagent = require('superagent');
-const pg =require('pg');
+const pg = require('pg');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -53,11 +53,11 @@ client.connect().then(() => {
 ///// ---- Server routes ---- /////
 
 app.get('/', getLoginPage);
-app.get('/search', getSearchResults);
+app.get('/search', getSearch);
 app.get('/recipes', getRecipe);
 app.post('/login', loginInfo);
+app.get('/results', getResults);
 app.get('/about-us', getTeamInfo);
-
 
 
 
@@ -95,12 +95,16 @@ function getSearchResults(request, response){
 function getTeamInfo(request, response){
   response.render('about-us.ejs');
 }
- 
+
 function loginInfo(request, response){  
   userName = request.body.user_login_id.toLowerCase();
   response.redirect('/search');
 }
 
+function getSearch(request, response){
+  response.render('search.ejs');
+}
+ 
 function getRecipe(request, response){
   let switching = false;
 
@@ -136,7 +140,10 @@ function getRecipe(request, response){
       })
       .catch(error => console.error(error));
   }
-  
+}
+
+function getResults(request, response){
+  response.render('results.ejs');
 }
 
 //// ---- SQL query functions ----/////
