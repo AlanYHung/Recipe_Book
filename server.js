@@ -56,8 +56,8 @@ app.get('/', getLoginPage);
 app.get('/search', getSearch);
 app.get('/recipes', getRecipe);
 app.post('/login', loginInfo);
-app.get('/results', getResults);
 app.get('/about-us', getTeamInfo);
+app.get('/details', getRecipeDetails);
 
 
 
@@ -96,10 +96,6 @@ function getLoginPage(request, response){
   response.render('login.ejs');
 }
 
-function getSearchResults(request, response){
-  response.render('search.ejs');
-}
-
 function getTeamInfo(request, response){
   response.render('about-us.ejs');
 }
@@ -112,18 +108,29 @@ function loginInfo(request, response){
 function getSearch(request, response){
   response.render('search.ejs');
 }
+
+function getRecipeDetails(request, response){
+  const url = 'https://api.spoonacular.com/recipes/716429/information?includeNutrition=false'
+  superagent.get(url)
+       .query({
+        apiKey: RECIPE_API_KEY,
+       })
+       .then(incomingDetails =>{
+         const detailsObj = incomingDetails.body;
+         console.log(detailsObj);
+       })
+}
  
 function getRecipe(request, response){
   const searchQuery = request.query.searchType;
-  console.log(request.query);
-  console.log(searchQuery);
-  if(searchQuery==='dishsearch'){
-    console.log('entering dish search');
+ if(searchQuery==='dishsearch'){
     const url = 'https://api.spoonacular.com/recipes/complexSearch'
     superagent.get(url)
       .query({
         apiKey: RECIPE_API_KEY,
-        query: request.query.query
+        query: request.query.query,
+        number: 6,
+        instructionsRequired: true
       })
       .then(incomingRecipe =>{
         const recipeObj = incomingRecipe.body.results;
@@ -133,10 +140,12 @@ function getRecipe(request, response){
       })
       .catch(error => console.error(error));
   }
-  else{
+  else if(searchQuery==='ingredientsearch'){
     console.log('enter ingredient search');
     let numOfIngredients = request.query.numOfIngredients;
     let ingredientSearchStr = '';
+    const url = 'https://api.spoonacular.com/recipes/findByIngredients'
+
     for (let i=1; i<=numOfIngredients; i++){
       let currentIngredientStr = request.query[`ingredient_${i}`];
       if (i<numOfIngredients){
@@ -144,29 +153,31 @@ function getRecipe(request, response){
       }else {
         ingredientSearchStr+=currentIngredientStr;
       }
-      console.log(ingredientSearchStr);
     }
-  //   const url = 'https://api.spoonacular.com/recipes/findByIngredients'
-  //   superagent.get(url)
-  //   .query({
-  //     apiKey: RECIPE_API_KEY,
-  //       ingredients: 'apples,sugar,flour' 
-  //     })
-  //     .then(incomingIngredients =>{
-  //       const ingredientsObj = incomingIngredients.body;
-  //       const ingredientsResults = ingredientsObj.map(ingredientsResultsObj => {
-  //         let missed = [];
-  //         let used = [];
-  //         missed = ingredientsResultsObj.missedIngredients.map(missedIngredientsObj => missedIngredientsObj.name);
-  //         used = ingredientsResultsObj.usedIngredients.map(usedIngredientsObj => usedIngredientsObj.name);
-  //         console.log(missed);
-  //         console.log('used', used);
-  //         return new IngredientObj(ingredientsResultsObj, missed, used);
-  //       });
-  //       console.log(ingredientsResults);
+      superagent.get(url)
+      .query({
+        apiKey: RECIPE_API_KEY,
+        ingredients: ingredientSearchStr,
+        number: 6
+      })
+      .then(incomingIngredients =>{
+        const ingredientsObj = incomingIngredients.body;
+        const ingredientsResults = ingredientsObj.map(ingredientsResultsObj => {
+          let missed = [];
+          let used = [];
+          missed = ingredientsResultsObj.missedIngredients.map(missedIngredientsObj => missedIngredientsObj.name);
+          used = ingredientsResultsObj.usedIngredients.map(usedIngredientsObj => usedIngredientsObj.name);
+          console.log(missed);
+          console.log('used', used);
+          return new IngredientObj(ingredientsResultsObj, missed, used);
+        });
         
-  //     })
-  //     .catch(error => console.error(error));
+        response.render('./results.ejs', {dishObjArray: ingredientsResults});
+      })
+      .catch(error => console.error(error));
+  }
+  else{
+    // Do nothing
   }
 }
 
@@ -175,6 +186,7 @@ function getResults(request, response){
 }
 
 //// ---- SQL query functions ----/////
+
 
 //// ---- Error catching - server ---- ////
 
