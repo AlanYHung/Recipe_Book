@@ -3,6 +3,7 @@
   <img id="recipe_result_img" src="<%= dishObj.image %>" alt="<%= dishObj.image %>">
   <form action="/details" method="POST">
     <input type="hidden" name="id" value="<%= dishObj.id %>">
+    <input type="hidden" name="image" value="<%= dishObj.image %>">
     <button id="recipe_result_button">View Recipe Details</button>
   </form>
 </li>

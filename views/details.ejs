@@ -18,7 +18,7 @@
 
           <!-- Section for Storing and Styling Title -->
           <div class="recipe_detail_element_body_styling">
-            <h2 id="recipe_detail_title" class="recipe_detail_element_styling">Zucchini Pizza Boats</h2>
+            <h2 id="recipe_detail_title" class="recipe_detail_element_styling"><%= recipeDetailObj.title %></h2>
           </div>
 
           <!-- Section for Storing and Styling Cooking Image and Instructions -->
@@ -26,7 +26,8 @@
 
             <!-- Section for Storing and Styling Image -->
             <div id="recipe_detail_img_body">
-              <img id="recipe_detail_img" src="https://spoonacular.com/recipeImages/665769-556x370.jpg" alt="https://spoonacular.com/recipeImages/665769-556x370.jpg">
+              <img id="recipe_detail_img" src="<%= recipeDetailObj.image %>" alt="<%= recipeDetailObj.image %>">
+              <%- include("./partials/recipe_form", {recipeDetailObj: recipeDetailObj}) %>
             </div>
 
             <!-- Section for Storing and Styling Cooking Instructions -->
@@ -34,17 +35,16 @@
 
               <!-- Section for Ingredients and Cooking Time -->
               <div id="recipe_detail_ingredients_list">
-                <h3 id="recipe_detail_cooking_time" class="recipe_detail_cooking_information"><b>Cooking Time:</b> 45</h3>
-                <h3 id="recipe_detail_servings" class="recipe_detail_cooking_information">Servings: 6</h3>
+                <h3 id="recipe_detail_cooking_time" class="recipe_detail_cooking_information">Cooking Time: <%= recipeDetailObj.cooking_time %></h3>
+                <h3 id="recipe_detail_servings" class="recipe_detail_cooking_information">Servings: <%= recipeDetailObj.servings %></h3>
                
                 <!-- Section for Ingredients List -->
                 <div id="recipe_detail_ingredient_list_body">
                   <h3 id="recipe_detail_ingr_title" class="recipe_detail_cooking_information">Ingredients:</h3>
                   <ul class="recipe_detail_instructions">
-                    <li class="recipe_detail_cooking_step">3 zucchini</li>
-                    <li class="recipe_detail_cooking_step">Olive oil, enough to brush on the boats</li>
-                    <li class="recipe_detail_cooking_step">1-2 tsp. garlic, minced</li>
-                    <li class="recipe_detail_cooking_step">15 grape tomatoes, halved'</li>
+                    <% recipeDetailObj.ingredients.forEach(ingredient => { %>
+                      <li class="recipe_detail_cooking_step"><%= ingredient %></li>
+                    <% }) %>
                   </ul>
                 </div>
               </div> 
@@ -53,7 +53,7 @@
               <div id="recipe_detail_instructions_list">
                 <h3 id="recipe_detail_instructions_title" class="recipe_detail_cooking_information">Instructions:</h3>
                 <ul class="recipe_detail_instructions">
-                  <% instrTemp.forEach(cookingStep => { %>
+                  <% recipeDetailObj.instructions.forEach(cookingStep => { %>
                     <li class="recipe_detail_cooking_step"><%= cookingStep %></li>
                   <% }) %>
                 </ul>
@@ -63,17 +63,15 @@
           </div>
 
           <!-- Section for Storing Summary of Recipe -->
-          <div id="recipe_detail_summary_body" class="recipe_detail_element_body_styling">
+          <!-- <div id="recipe_detail_summary_body" class="recipe_detail_element_body_styling"> -->
 
             <!-- Gave Title it's own box for Styling purposes -->
-            <div id="recipe_detail_summary_title">
+            <!-- <div id="recipe_detail_summary_title">
               <h3 class="recipe_detail_cooking_information">Summary:</h3>
             </div>
-            <p id="recipe_detail_summary" class="recipe_detail_element_styling">
-              If you want to add more <b>Mediterranean</b> recipes to your recipe box, Zucchini Pizza Boats might be a recipe you should try. One serving contains <b>128 calories</b>, <b>8g of protein</b>, and <b>8g of fat</b>. This recipe serves 6 and costs $1.31 per serving. From preparation to the plate, this recipe takes roughly <b>roughly 45 minutes</b>. 1 person has tried and liked this recipe. A mixture of basil, grape tomatoes, mozzarella cheese, and a handful of other ingredients are all it takes to make this recipe so scrumptious. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 51%</b>. This score is solid. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/zucchini-pizza-boats-28393">Zucchini Pizza Boats</a>, <a href="https://spoonacular.com/recipes/zucchini-pizza-boats-591163">zucchini pizza boats</a>, and <a href="https://spoonacular.com/recipes/zucchini-pizza-boats-982860">Zucchini Pizza Boats</a>.
-            </p>
+            <p id="recipe_detail_summary" class="recipe_detail_element_styling"><%= recipeDetailObj.Summary %></p>
           </div>
-        </section>
+        </section> -->
       </section>
     </main>
     <%- include("./partials/footer", {page_footer: "all_page_footer",

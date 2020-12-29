@@ -1,0 +1,16 @@
+<form action="/save-recipe" method="POST">
+  <input type="hidden" name="id" value="<%= recipeDetailObj.recipe_id %>">
+  <input type="hidden" name="title" value="<%= recipeDetailObj.title %>">
+  <input type="hidden" name="image" value="<%= recipeDetailObj.image %>">
+  <input type="hidden" name="cookingTime" value="<%= recipeDetailObj.cooking_time %>">
+  <input type="hidden" name="servings" value="<%= recipeDetailObj.servings %>">
+  <input type="hidden" name="numOfIngred" value="<%= recipeDetailObj.ingredients.length %>">
+  <% recipeDetailObj.ingredients.forEach((ingredient, index) => { %>
+    <input type="hidden" name="ingred_<%= index %>" value="<%= ingredient %>">
+  <% }) %>
+  <input type="hidden" name="numOfInstructions" value="<%= recipeDetailObj.instructions.length %>">
+  <% recipeDetailObj.instructions.forEach((instruction, index) => { %>
+    <input type="hidden" name="instr_<%= index %>" value="<%= instruction %>">
+  <% }) %>
+  <button>Save Recipe</button>
+</form>
