@@ -1,7 +1,7 @@
 # What's in our Fridge? A Recipe Cook Book
 
 **Author**: Alan Hung, Nick Abramowicz, Seid Mohamed, Wondwosen Tsige
-**Version**: 0.4.7
+**Version**: 0.6.0
 
 ## Overview
 This program is a basic full-stack application that allows you to search for Food Recipes based on ingredients and/or food names.  The app will let users personalize a cook book by allowing them to save recipes to their accounts, modify recipes, and share recipes for ratings if they so choose.
@@ -39,6 +39,12 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 * Added Drop Down to search page to select searching method (12/27/20 AYH)
 * Added and Styled Dish Search Form (12/27/20 AYH)
 * Added and Styled Ingredient Search Form (12/27/20 AYH)
+* Added Ingredients Object Constructor (12/27/20 D:NA Nav:SM Nav:AYH)
+* Ingredients Object API Pull (12/27/20 D:NA Nav:SM Nav:AYH)
+* Results Page Designed HTML/CSS (12/27/20 AYH)
+* Results List Partial Added (12/27/20 AYH)
+* Successfully attached search forms to server (12/27/20 D:NA Nav:AYH,SM,WT)
+* Completed retrieved data and completed objects (12/27/20 D:NA Nav:AYH,SM,WT)
 
 ## Postgress SQL Database
 ### Database Name: recipe_book
@@ -59,6 +65,7 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * [Recipe Book Wireframe](./images/Wireframe.PNG)
   * [w3schools.com](https://www.w3schools.com/)
   * [GIPHY](https://giphy.com/)
+  * [Refrigerator Picture from vectorstock.com](https://www.vectorstock.com/)
 
 ### Features
 #### Template
@@ -104,10 +111,12 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 #### API Search Functionality - Server
   * Estimate of time needed to complete: <u>2 Hours</u>
   * Start Date: <u>12/27/20</u>
-  * Start time: <u>11:45 pm</u>
+  * Start time: <u>11:45 am</u>
   * Lunch stop: <u>1:33 pm</u>
   * Work Continuation: <u>2:45pm</u>
   * Day End: <u>3:30 pm</u>
+  * Start time: <u>9:00 am</u>
+  * Lunch Break: <u>12:00 pm </u>
   * Finish Date: <u></u>
   * Finish time: <u></u>
   * Actual time needed to complete: <u></u>
@@ -119,3 +128,27 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * Finish Date: <u>12/27/20</u>
   * Finish time: <u>6:11 pm</u>
   * Actual time needed to complete: <u>7 Hours</u>
+
+#### Results Page Design
+  * Estimate of time needed to complete: <u>1 Hours</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>1:00 pm</u>
+  * Finish Date: <u>12/27/20</u>
+  * Finish time: <u>2:07 pm</u>
+  * Actual time needed to complete: <u>1 Hour 7 Min</u>
+
+#### Heroku Deployment + Domain Name
+  * Estimate of time needed to complete: <u>1 Hour</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>10:00 am</u>
+  * Finish Date: <u>12/27/20</u>
+  * Finish time: <u>3:30 pm</u>
+  * Actual time needed to complete: <u>5 Hours 30 Min</u>
+
+#### About Us Page
+  * Estimate of time needed to complete: <u>4 Hours</u>
+  * Start Date: <u>12/27/20</u>
+  * Start time: <u>10:00 am</u>
+  * Finish Date: <u></u>
+  * Finish time: <u></u>
+  * Actual time needed to complete: <u></u>

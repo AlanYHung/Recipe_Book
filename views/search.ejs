@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./styles/modules/search.css" type="text/css">
   </head>
   <body>
-    <%- include("./partials/header", {headerTitle: "Recipe Book - Search",
+    <%- include("./partials/header", {headerPurpose: "Search",
                                       navID: "navigation_bar"}) %>
     <main>
         <div id = "search_page_body">
@@ -21,14 +21,16 @@
               </form>
 
               <!-- Search By: Dish Form -->
-              <form id="search_form_dish" action="" method="">
+              <form id="search_form_dish" action="/recipes" method="GET">
+                <input type="hidden" name="searchType" value="dishsearch">
                 <label id="dish_form_label" class="dish_search_elements">Recipe Search By: Dish</label>
                 <input id="dish_form_input" class="dish_search_elements" type="text" name="query">
                 <button id="dish_form_button" class="dish_search_elements">Search For Recipes</button>
               </form>
 
               <!-- Search By: Ingredients Form -->
-              <form id="search_form_ingredients" action="" method="">
+              <form id="search_form_ingredients" action="/recipes" method="GET">
+                <input type="hidden" name="searchType" value="ingredientsearch">
                 <label id="ingredients_form_label" class="ingredients_search_elements">Recipe Search By: Ingredients</label>
 
                 <!-- Section added in for formatting -->
@@ -42,6 +44,8 @@
                   <label id='ingredient_1_label' class="ingredients_search_elements ingredients_search_label">Ingredient 1:</label>
                   <input id="ingredient_1" class="ingredients_search_elements ingredients_search_input" type="text" name="ingredient_1">
                 </div>
+
+                <input id="ingredientTracker" type="hidden" name="numOfIngredients" value="1">
 
                 <button id="ingredients_form_button" class="ingredients_search_elements">Search For Recipes</button>
               </form>

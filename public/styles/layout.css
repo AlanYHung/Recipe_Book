@@ -3,14 +3,20 @@
 /* ======================================================================= */
 
 #headerTitleID{
-  height: 80%;
+  height: 60%;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 15px;
+}
+
+#headerPurpose{
+  height: 20%;
+  text-align: center;
+  font-size: xx-large;
 }
 
 #nav_links{
   width: 100%;
-  height: 20%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,4 +38,51 @@ a:link{
 
 a:visited{
   color: aliceblue;
+}
+
+@media(min-width:415px){
+  #headerTitleID{
+    height: 50%;
+    padding-top: 30px;
+  }
+
+  #headerPurpose{
+    height: 30%;
+    text-align: center;
+    font-size: xx-large;
+  }
+}
+
+/* ======================================================================= */
+/* ======================= Results Partial Styling ======================= */
+/* ======================================================================= */
+
+#recipe_result_body{
+  width: 250px;
+  height: 260px;
+  margin-top: 30px;
+  background-color: rgba(240, 248, 255, 0.7);
+  box-shadow: 10px 10px 8px black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+#recipe_result_title{
+  width: 80%;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+#recipe_result_img{
+  width: 200px;
+}
+
+#recipe_result_button{
+  width: 150px;
+  margin-left: 50px;
 }
