@@ -34,6 +34,7 @@ $removeIngredients.on('click', removeIngredInput);
 
 function addIngredInput(addIngredEvent){
   const $ingredientsFormButton = $('#ingredients_form_button');
+  const $ingredientsTracker = $('#ingredientTracker');
 
   addIngredEvent.preventDefault();
   numOfIngred++;
@@ -42,7 +43,10 @@ function addIngredInput(addIngredEvent){
                            <input id="ingredient_${numOfIngred}" class="ingredients_search_elements ingredients_search_input" type="text" name="ingredient_${numOfIngred}">
                          </div>
                          
+                         <input id="ingredientTracker" type="hidden" name="numOfIngredients" value=${numOfIngred}>
+                         
                          <button id="ingredients_form_button" class="ingredients_search_elements">Search For Recipes</button>`;
+  $ingredientsTracker.remove();
   $ingredientsFormButton.remove();
   $ingredientSearchForm.append(newIngredSearch);
 }

@@ -12,7 +12,9 @@
         <div id="results_body_left"></div>
         <div id="results_body_center">
           <ul id="results_display_body">
-            <%- include('./partials/results_li') %>
+            <% dishObjArray.forEach(dishObj => { %>
+              <%- include('./partials/results_li', {dishObj: dishObj}) %>
+            <% }); %>
           </ul>
         </div>
         <div id="results_body_right"></div>
