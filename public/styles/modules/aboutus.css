@@ -1,0 +1,40 @@
+
+#team-name{
+    text-align: center;
+    padding: 5px;
+    font-size: 45px;
+    margin: 5px 2px 0px 0px;
+    color: beige;
+  
+  
+  }
+  
+  #team-name:hover{
+    transition: 2s;
+    transform:scale(1.8) ;
+    opacity: 2;
+    border-radius: 50%;
+    color: blue;
+  }
+     
+  .team-members{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    border: 5px solid white;
+    padding: 10px 10px 0px 10px;
+    margin: 20px;
+    text-align: center;
+    font-size: 35;
+    border-radius: 25px;
+  }
+  
+  
+  #picture:hover{
+    transition: 5s;
+    transform:scale(1.2) ;
+    opacity: 2;
+    border-radius: 20%;
+  }
+  
+  
