@@ -9,5 +9,6 @@ CREATE TABLE user_recipes(
   cooking_time NUMERIC(3,0), /* readyInMinutes for API */
   servings NUMERIC(2,0),
   ingredients VARCHAR(500), /* extendedIngredients for API */
-  instructions TEXT
+  instructions TEXT,
+  summary TEXT
 );
