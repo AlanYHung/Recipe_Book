@@ -55,24 +55,23 @@ client.connect().then(() => {
 app.get('/', getLoginPage);
 app.get('/search', getSearch);
 app.get('/recipes', getRecipe);
-app.post('/login', loginInfo);
 app.get('/about-us', getTeamInfo);
-app.get('/details', getRecipeDetails);
-
-
+app.post('/login', loginInfo);
+app.post('/details', getRecipeDetails);
 
 //// ---- Object constructors ----- ////
 
-// function RecipeObject(){
-//   this.user_id =
-//   this.recipe_id =
-//   this.title =
-//   this.image =
-//   this.cooking_time =
-//   this.servings =
-//   this.ingredients =
-//   this.instructions =
-// }
+function RecipeObject(jsonObject, ingredientsList){
+  this.user_id = userName;
+  this.recipe_id = jsonObject.id;
+  this.title = jsonObject.title; 
+  this.image = jsonObject.image;
+  this.cooking_time = jsonObject.readyInMinutes;
+  this.servings = jsonObject.servings;
+  this.ingredients = ingredientsList;
+  this.instructions = jsonObject.instructions;
+  this.summary = jsonObject.summary;
+}
 
 function DishObject(data){
   this.id = data.id;
@@ -102,6 +101,7 @@ function getTeamInfo(request, response){
 
 function loginInfo(request, response){  
   userName = request.body.user_login_id.toLowerCase();
+  console.log(userName);
   response.redirect('/search');
 }
 
@@ -110,15 +110,21 @@ function getSearch(request, response){
 }
 
 function getRecipeDetails(request, response){
-  const url = 'https://api.spoonacular.com/recipes/716429/information?includeNutrition=false'
+  const recipeID = request.body.id;
+  const url = `https://api.spoonacular.com/recipes/${recipeID}/information`
+  console.log(recipeID);
   superagent.get(url)
-       .query({
-        apiKey: RECIPE_API_KEY,
-       })
-       .then(incomingDetails =>{
-         const detailsObj = incomingDetails.body;
-         console.log(detailsObj);
-       })
+    .query({
+      apiKey: RECIPE_API_KEY
+    })
+    .then(incomingDetails =>{
+      const detailsObj = incomingDetails.body;
+      let ingredStrArr = detailsObj.extendedIngredients.map(ingredObj => ingredObj.original);
+      let recipeDetail = new RecipeObject(detailsObj, ingredStrArr);
+      console.log(recipeDetail);
+      response.render('details.ejs', {recipeDetailObj: recipeDetail});
+    })
+    .catch(error => console.error(error));
 }
  
 function getRecipe(request, response){
@@ -167,11 +173,9 @@ function getRecipe(request, response){
           let used = [];
           missed = ingredientsResultsObj.missedIngredients.map(missedIngredientsObj => missedIngredientsObj.name);
           used = ingredientsResultsObj.usedIngredients.map(usedIngredientsObj => usedIngredientsObj.name);
-          console.log(missed);
-          console.log('used', used);
           return new IngredientObj(ingredientsResultsObj, missed, used);
         });
-        
+        console.log(ingredientsResults);
         response.render('./results.ejs', {dishObjArray: ingredientsResults});
       })
       .catch(error => console.error(error));
@@ -179,10 +183,6 @@ function getRecipe(request, response){
   else{
     // Do nothing
   }
-}
-
-function getResults(request, response){
-  response.render('results.ejs');
 }
 
 //// ---- SQL query functions ----/////

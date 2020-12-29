@@ -10,7 +10,7 @@
 }
 
 #results_body_left, #results_body_right{
-  width: 20%;
+  width: 0;
   height: 100%;
   background-image: url('https://media.giphy.com/media/3JgtnXdRhSflK/giphy.gif');
   background-position: center;
@@ -19,7 +19,7 @@
 }
 
 #results_body_center{
-  width: 60%;
+  width: 100%;
   height: 100%;
   background-color: rgba(128, 128, 128, 0.5);
 }
@@ -31,4 +31,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+@media(min-width:1000px){
+  #results_body_center{
+    width: 60%;
+  }
+
+  #results_body_left, #results_body_right{
+    width: 20%;
+  }
 }
