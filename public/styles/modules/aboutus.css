@@ -17,8 +17,8 @@
     color: blue;
   }
      
-  .team-members{
-
+  #inside_aboutus_page{
+    display: none;
   }
   
 
@@ -30,20 +30,22 @@
   }
   
   .member{
-    width: 50%;
+    width: 49%;
     height: 400px;
     border: 2px solid rebeccapurple;
-    background-color: blueviolet;
+    background-color: rgb(211, 182, 238);
     float: left;
-    box-sizing: border-box;
+   
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
+    margin: 5px;
   }
   
   .picture{
     width: 200px;
+    
   }
 
   .name-header{

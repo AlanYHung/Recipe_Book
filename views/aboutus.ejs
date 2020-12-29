@@ -10,6 +10,8 @@
 <body>
     <%- include("./partials/header", {pageHeader: "all_page_header",
                                       headerPurpose: "About Us",
+                                      search_link: "search_link_id",
+                                      aboutus_link: "inside_aboutus_page",
                                       navID: "navigation_bar"}) %>
 
 <main>
@@ -17,39 +19,39 @@
     <section class = "team-members">
         <h3 class="name-header">Alan Hung</h3>
         <div class = "member">
-            <img class="picture" src="/images/LI Pic Edited.jpg" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio voluptates excepturi impedit nobis voluptatum quod, similique voluptas, voluptatem voluptate odio laborum. Nostrum magni debitis architecto! Quo excepturi nisi fugiat quaerat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae nam adipisci tempore fuga. Culpa .
-            </p>
+            <img class="picture" src="/images/LI Pic Edited.jpg" alt="Alan">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio voluptates excepturi impedit nobis voluptatum quod, similique voluptas, voluptatem voluptate odio laborum. Nostrum magni debitis architecto! Quo excepturi nisi fugiat quaerat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae nam adipisci tempore fuga. Culpa .</p>
+            <p><a id="socials" href="https://www.linkedin.com/in/alanyhung/" target="_blank">Linkedln</a></p>
         </div>
-        <a id="socials" href="linkedin link" target="_blank">Linkedln</a>
+        
     </section>
     <section class = "team-members">
         <div class = "member">
-            <img class= "picture" src="" alt=""><br><br>
-            <h3>Name here</h3>
+            <img class= "picture" src="/images/seid.jpg" alt="Seid"><br><br>
+            <h3>Seid Mohamed</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio voluptates excepturi impedit nobis voluptatum quod, similique voluptas, voluptatem voluptate odio laborum. Nostrum magni debitis architecto! Quo excepturi nisi fugiat quaerat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae nam adipisci tempore fuga. Culpa </p>
-            <p><a href="linkedin link" target = "_blank">Linkedln</a></p>
+            <p><a href="https://www.linkedin.com/in/seid-mohamed/" target = "_blank">Linkedln</a></p>
         </div>
     </section>
     <section class = "team-members">
         <div class = "member">
             <img class= "picture" src="" alt=""><br><br>
-            <h3>Name here</h3>
+            <h3>Wondwosen Tsige</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio voluptates excepturi impedit nobis voluptatum quod, similique voluptas, voluptatem voluptate odio laborum. Nostrum magni debitis architecto! Quo excepturi nisi fugiat quaerat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae nam adipisci tempore fuga. Culpa </p>
-            <p><a href="linkedin link" target = "_blank">Linkedln</a></p>
+            <p><a href="https://www.linkedin.com/in/wondwosen-tsige/" target = "_blank">Linkedln</a></p>
         </div>
     </section>
     <section class = "team-members">
         <div class = "member">
             <img class= "picture" src="" alt=""><br><br>
-            <h3>Name here</h3>
+            <h3>Nick Abramowicz</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio voluptates excepturi impedit nobis voluptatum quod, similique voluptas, voluptatem voluptate odio laborum. Nostrum magni debitis architecto! Quo excepturi nisi fugiat quaerat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae nam adipisci tempore fuga. Culpa </p>
             <p><a href="linkedin link" target = "_blank">Linkedln</a></p>
         </div>
     </section>
     </main>
-
-    <%- include("./partials/footer", {page_footer: "",
-                                      extraFooter: ""}) %>
+    <%- include("./partials/footer", {page_footer: "all_page_footer",
+    extraFooter: "no_extra_footer",
+    extraFooterText: ""}) %>
   </body>
 </html>
