@@ -106,7 +106,7 @@ function getSearch(request, response){
 }
 
 function getTeamInfo(request, response){
-  response.render('about-us.ejs');
+  response.render('aboutus.ejs');
 }
 
 function getRecipeDetails(request, response){
