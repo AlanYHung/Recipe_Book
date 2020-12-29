@@ -114,37 +114,59 @@ function getSearch(request, response){
 }
  
 function getRecipe(request, response){
-  let switching = false;
-
-  if(switching){
+  const searchQuery = request.query.searchType;
+  console.log(request.query);
+  console.log(searchQuery);
+  if(searchQuery==='dishsearch'){
+    console.log('entering dish search');
     const url = 'https://api.spoonacular.com/recipes/complexSearch'
     superagent.get(url)
       .query({
         apiKey: RECIPE_API_KEY,
-        query: 'omelette'
+        query: request.query.query
       })
       .then(incomingRecipe =>{
         const recipeObj = incomingRecipe.body.results;
         const recipeData = recipeObj.map(recipeToShow => new DishObject(recipeToShow));
         console.log(recipeData);
+        response.render('./results.ejs', {dishObjArray: recipeData});
       })
       .catch(error => console.error(error));
   }
   else{
-    const missed = [];
-    const url = 'https://api.spoonacular.com/recipes/findByIngredients'
-    superagent.get(url)
-      .query({
-        apiKey: RECIPE_API_KEY,
-        ingredients: 'apples,sugar,flour' 
-      })
-      .then(incomingIngredients =>{
-        const ingredientsObj = incomingIngredients.body;
-        const ingredientsResults = ingredientsObj.map(ingredientsResultsObj => new IngredientObj(ingredientsResultsObj));
-        console.log(ingredientsResults);
+    console.log('enter ingredient search');
+    let numOfIngredients = request.query.numOfIngredients;
+    let ingredientSearchStr = '';
+    for (let i=1; i<=numOfIngredients; i++){
+      let currentIngredientStr = request.query[`ingredient_${i}`];
+      if (i<numOfIngredients){
+        ingredientSearchStr+=`${currentIngredientStr},`;
+      }else {
+        ingredientSearchStr+=currentIngredientStr;
+      }
+      console.log(ingredientSearchStr);
+    }
+  //   const url = 'https://api.spoonacular.com/recipes/findByIngredients'
+  //   superagent.get(url)
+  //   .query({
+  //     apiKey: RECIPE_API_KEY,
+  //       ingredients: 'apples,sugar,flour' 
+  //     })
+  //     .then(incomingIngredients =>{
+  //       const ingredientsObj = incomingIngredients.body;
+  //       const ingredientsResults = ingredientsObj.map(ingredientsResultsObj => {
+  //         let missed = [];
+  //         let used = [];
+  //         missed = ingredientsResultsObj.missedIngredients.map(missedIngredientsObj => missedIngredientsObj.name);
+  //         used = ingredientsResultsObj.usedIngredients.map(usedIngredientsObj => usedIngredientsObj.name);
+  //         console.log(missed);
+  //         console.log('used', used);
+  //         return new IngredientObj(ingredientsResultsObj, missed, used);
+  //       });
+  //       console.log(ingredientsResults);
         
-      })
-      .catch(error => console.error(error));
+  //     })
+  //     .catch(error => console.error(error));
   }
 }
 
