@@ -8,8 +8,9 @@
                                       headerPurpose: "Template",
                                       navID: "nav_template"}) %>
     <main></main>
-    <%- include("./partials/footer", {page_footer: "",
-                                      extraFooter: "extra_footer_template"}) %>
+    <%- include("./partials/footer", {page_footer: "footer_template",
+                                      extraFooter: "extra_footer_template",
+                                      extraFooterText: "extra footer text template"}) %>
     <%- include("./partials/javascript", {jsFileName: 'app'}) %>
   </body>
 </html>
