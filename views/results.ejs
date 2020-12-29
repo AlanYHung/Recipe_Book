@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="./styles/modules/results.css" type="text/css">
   </head>
   <body>
-    <%- include("./partials/header", {headerPurpose: "Results",
+    <%- include("./partials/header", {pageHeader: "all_page_header",
+                                      headerPurpose: "Results",
                                       navID: "navigation_bar"}) %>
     <main>
       <section id="results_body">
@@ -20,6 +21,6 @@
         <div id="results_body_right"></div>
       </section>
     </main>
-    <%- include("./partials/footer") %>
+    <%- include("./partials/footer", {extraFooter: ""}) %>
   </body>
 </html>

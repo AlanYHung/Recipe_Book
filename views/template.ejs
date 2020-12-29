@@ -4,10 +4,11 @@
     <%- include("./partials/head") %>
   </head>
   <body>
-    <%- include("./partials/header", {headerPurpose: "Template",
+    <%- include("./partials/header", {pageHeader: "all_page_template",
+                                      headerPurpose: "Template",
                                       navID: "nav_template"}) %>
     <main></main>
-    <%- include("./partials/footer") %>
+    <%- include("./partials/footer", {extraFooter: "extra_footer_template"}) %>
     <%- include("./partials/javascript", {jsFileName: 'app'}) %>
   </body>
 </html>

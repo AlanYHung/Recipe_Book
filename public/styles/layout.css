@@ -2,16 +2,29 @@
 /* ================== Universal Header Partial Styling =================== */
 /* ======================================================================= */
 
+#all_page_header{
+  background-image: url('../images/fresh_produce.jpg');
+  background-position: center;
+}
+
 #headerTitleID{
   height: 60%;
   text-align: center;
   padding-top: 15px;
+  background-color: rgba(105, 173, 233, 0.8);
 }
 
 #headerPurpose{
   height: 20%;
   text-align: center;
   font-size: xx-large;
+  background-color: rgba(105, 173, 233, 0.8);
+}
+
+#navigation_bar{
+  width: 100%;
+  height: 20%;
+  background-color: rgba(105, 173, 233, 0.8);
 }
 
 #nav_links{

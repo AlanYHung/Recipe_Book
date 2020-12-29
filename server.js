@@ -95,10 +95,6 @@ function getLoginPage(request, response){
   response.render('login.ejs');
 }
 
-function getTeamInfo(request, response){
-  response.render('about-us.ejs');
-}
-
 function loginInfo(request, response){  
   userName = request.body.user_login_id.toLowerCase();
   console.log(userName);
@@ -107,6 +103,10 @@ function loginInfo(request, response){
 
 function getSearch(request, response){
   response.render('search.ejs');
+}
+
+function getTeamInfo(request, response){
+  response.render('about-us.ejs');
 }
 
 function getRecipeDetails(request, response){

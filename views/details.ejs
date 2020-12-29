@@ -4,9 +4,10 @@
     <%- include("./partials/head") %>
   </head>
   <body>
-    <%- include("./partials/header", {headerPurpose: "Recipe Details",
+    <%- include("./partials/header", {pageHeader: "all_page_header",
+                                      headerPurpose: "Recipe Details",
                                       navID: "navigation_bar"}) %>
     <main></main>
-    <%- include("./partials/footer") %>
+    <%- include("./partials/footer", {extraFooter: ""}) %>
   </body>
 </html>

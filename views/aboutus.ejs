@@ -8,8 +8,9 @@
     <title>What is in the fridge</title>
 </head>
 <body>
-    <%- include("./partials/header", {headerTitle: "Recipe Book - About-Us",
-    navID: "navigation_bar"}) %>
+    <%- include("./partials/header", {pageHeader: "all_page_header",
+                                      headerPurpose: "About Us",
+                                      navID: "navigation_bar"}) %>
 
 <main>
     
@@ -48,6 +49,6 @@
     </section>
     </main>
 
-    <%- include("./partials/footer") %>
+    <%- include("./partials/footer", {extraFooter: ""}) %>
   </body>
 </html>
