@@ -57,19 +57,20 @@ app.get('/search', getSearch);
 app.get('/recipes', getRecipe);
 app.get('/about-us', getTeamInfo);
 app.post('/login', loginInfo);
-app.get('/details', getRecipeDetails);
+app.post('/details', getRecipeDetails);
+app.post('/save-recipe', storeRecipe);
 
 //// ---- Object constructors ----- ////
 
-function RecipeObject(jsonObject, ingredientsList){
+function RecipeObject(jsonObject, imageURL, ingredientsList){
   this.user_id = userName;
   this.recipe_id = jsonObject.id;
   this.title = jsonObject.title; 
-  this.image = jsonObject.image;
+  this.image = imageURL;
   this.cooking_time = jsonObject.readyInMinutes;
   this.servings = jsonObject.servings;
   this.ingredients = ingredientsList;
-  this.instructions = jsonObject.instructions;
+  this.instructions = jsonObject.instructions.split('\n');
   this.summary = jsonObject.summary;
 }
 
@@ -109,33 +110,27 @@ function getTeamInfo(request, response){
   response.render('aboutus.ejs');
 }
 
+// This Function Gets and Renders a specific Recipe Detail
 function getRecipeDetails(request, response){
-  let cookingInstructions = 'Preheat the oven to 350 F.\n' +
-  'Cut the zucchinis in half lengthwise. If necessary, trim a little off the bottom so it will sit still in a baking dish.\n' +
-  'With a spoon, scoop out some of the center where the seeds are to make a little groove in the zucchini boats.\n' +
-  'Place zucchini in a baking dish and brush the boats with olive oil, spread the minced garlic and add salt and pepper to taste.\n' +
-  'Arrange the halved tomatoes on the boats and sprinkle with bread crumbs.\n' +
-  'Bake for about 30 minutes.\n' +
-  'Remove from oven, turn on the broiler, place mozzarella and basil in between the tomatoes, and put them back in the oven to broil for a few minutes until golden and bubbling.\n' +
-  'Remove from the oven and sprinkle on some parmesan cheese.';
-  let parsedcookingInstr = cookingInstructions.split('\n');
-  // const recipeID = request.body.id;
-  // const url = `https://api.spoonacular.com/recipes/${recipeID}/information`
-  // console.log(recipeID);
-  // superagent.get(url)
-  //   .query({
-  //     apiKey: RECIPE_API_KEY
-  //   })
-  //   .then(incomingDetails =>{
-  //     const detailsObj = incomingDetails.body;
-  //     let ingredStrArr = detailsObj.extendedIngredients.map(ingredObj => ingredObj.original);
-  //     let recipeDetail = new RecipeObject(detailsObj, ingredStrArr);
-  //     console.log(recipeDetail);
-      response.render('details.ejs', {instrTemp: parsedcookingInstr}/*, {recipeDetailObj: recipeDetail}*/);
-    // })
-    // .catch(error => console.error(error));
+  const recipeID = request.body.id;
+  const recipeImg = request.body.image
+  const url = `https://api.spoonacular.com/recipes/${recipeID}/information`
+  console.log(recipeID);
+  superagent.get(url)
+    .query({
+      apiKey: RECIPE_API_KEY
+    })
+    .then(incomingDetails =>{
+      const detailsObj = incomingDetails.body;
+      let ingredStrArr = detailsObj.extendedIngredients.map(ingredObj => ingredObj.original);
+      let recipeDetail = new RecipeObject(detailsObj, recipeImg, ingredStrArr);
+      console.log(recipeDetail);
+      response.render('details.ejs', {recipeDetailObj: recipeDetail});
+    })
+    .catch(error => console.error(error));
 }
- 
+
+// This Function Goes to the API and performs the user designated Dish/Ingredient Search
 function getRecipe(request, response){
   const searchQuery = request.query.searchType;
  if(searchQuery==='dishsearch'){
@@ -192,6 +187,11 @@ function getRecipe(request, response){
   else{
     // Do nothing
   }
+}
+
+// This Function saves user favorite recipes
+function storeRecipe(request, response){
+  console.log("body ", request.body);
 }
 
 //// ---- SQL query functions ----/////
