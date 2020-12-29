@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="./styles/modules/login.css" type="text/css">
   </head>
   <body>
-    <%- include("./partials/header", {headerPurpose: "Login",
+    <%- include("./partials/header", {pageHeader: "login_header",
+                                      headerPurpose: "Login",
                                       navID: "nav_login"}) %>
   <main>
     <div id="login_body">
@@ -26,7 +27,7 @@
       </section>
     </div>
   </main>
-  <%- include("./partials/footer") %>
+  <%- include("./partials/footer", {extraFooter: ""}) %>
   <%- include("./partials/javascript", {jsFileName: "login"}) %>
 </body>
 </html>

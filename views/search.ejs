@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="./styles/modules/search.css" type="text/css">
   </head>
   <body>
-    <%- include("./partials/header", {headerPurpose: "Search",
+    <%- include("./partials/header", {pageHeader: "all_page_header",
+                                      headerPurpose: "Search",
                                       navID: "navigation_bar"}) %>
     <main>
         <div id = "search_page_body">
@@ -52,7 +53,7 @@
             </section>
         </div>
     </main>
-    <%- include("./partials/footer") %>
+    <%- include("./partials/footer", {extraFooter: ""}) %>
     <%- include("./partials/javascript", {jsFileName: 'search'}) %>
   </body>
 </html>

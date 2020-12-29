@@ -2,6 +2,11 @@
 /* ======================= Header Nav Bar Styling ======================== */
 /* ======================================================================= */
 
+#login_header{
+  background-image: url("../../images/Kitchen_Tile.jpg");
+  background-position: center;
+}
+
 #nav_login{
   display: none;
 }
