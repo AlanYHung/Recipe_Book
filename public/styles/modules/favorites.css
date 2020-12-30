@@ -1,3 +1,7 @@
+#inside_favorites_page{
+  display: none;
+}
+
 #favorites_body{
     width: 100%;
     height: 100%;
@@ -22,6 +26,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(128, 128, 128, 0.5);
+    background-image: url('../../images/favoriteBackground.jpg');
+    background-position: center;
   }
   
   #favorites_display_body{

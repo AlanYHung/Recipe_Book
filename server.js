@@ -24,6 +24,7 @@ const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
 var userName = '';
 let emptySearch = false;
+let showDetailsDeleteButton = false;
 
 
 ///// ---- Dependency variables setup ----- ////
@@ -102,6 +103,12 @@ function IngredientObj(data, missedIngredients, usedIngredients){
   this.usedIngredients = usedIngredients;
 }
 
+// Quick fix for creating favorite recipe Object
+function FavRecipeObject(favRecObj){
+  this.id = favRecObj.recipe_id;
+  this.title = favRecObj.title;
+  this.image = favRecObj.image
+}
 
 //// ----- callback functions ----- //////
 
@@ -116,7 +123,7 @@ function getLoginPage(request, response){
 function loginInfo(request, response){  
   userName = request.body.user_login_id.toLowerCase();
   console.log(userName);
-  response.redirect('/search');
+  response.redirect('/favorites');
 }
 
 // This renders the Search Page
@@ -145,7 +152,8 @@ function getRecipeDetails(request, response){
       let ingredStrArr = detailsObj.extendedIngredients.map(ingredObj => ingredObj.original);
       let recipeDetail = new RecipeObject(detailsObj, recipeImg, ingredStrArr);
       console.log(recipeDetail);
-      response.render('details.ejs', {recipeDetailObj: recipeDetail});
+      response.render('details.ejs', {recipeDetailObj: recipeDetail,
+                                      showDeleteButton: showDetailsDeleteButton});
     })
     .catch(error => console.error(error));
 }
@@ -153,7 +161,8 @@ function getRecipeDetails(request, response){
 // This Function Goes to the API and performs the user designated Dish/Ingredient Search
 function getRecipe(request, response){
   const searchQuery = request.query.searchType;
- if(searchQuery==='dishsearch'){
+  showDetailsDeleteButton = false;
+  if(searchQuery==='dishsearch'){
     const url = 'https://api.spoonacular.com/recipes/complexSearch'
     superagent.get(url)
       .query({
@@ -220,15 +229,19 @@ function getRecipe(request, response){
 function storeRecipe(request, response){
   console.log("body ", request.body);
   saveRecipeSQL(request.body).then(results => {
-    response.redirect('/search');
+    response.redirect('/favorites');
   }).catch(error => console.error(error));
 }
 
 // This will retrieve favorites recipes from the database and render them to a user favorites page
 function getFavoritesPage(request, response){
+  showDetailsDeleteButton = true;
   console.log('entering get favorites')
   getFavRecipeSQL().then(results => {
-    console.log(results.rows[1]);
+    let favRecData = results.rows;
+    let favRecObjArr = favRecData.map(favRecObj => new FavRecipeObject(favRecObj));
+    console.log(favRecObjArr);
+    response.render('./favorites.ejs', {dishObjArray: favRecObjArr});
   });
 }
 

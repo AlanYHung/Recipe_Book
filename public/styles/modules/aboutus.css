@@ -35,3 +35,7 @@
     color: black;
     position: absolute;
   }
+
+  #inside_aboutus_page{
+    display: none;
+  }

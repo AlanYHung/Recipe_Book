@@ -68,9 +68,16 @@
   box-shadow: 10px 10px 8px black;
 }
 
-#save_favorites{
-  width: 300px;
-  margin: 30px 100px;
+#details_form{
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.details_form_button{
+  width: 150px;
+  margin-top: 10px;
 }
 
 #recipe_detail_instructions_body{
