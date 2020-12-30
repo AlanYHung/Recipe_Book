@@ -68,6 +68,11 @@
   box-shadow: 10px 10px 8px black;
 }
 
+#save_favorites{
+  width: 300px;
+  margin: 30px 100px;
+}
+
 #recipe_detail_instructions_body{
   width: 1000px;
   display: flex;

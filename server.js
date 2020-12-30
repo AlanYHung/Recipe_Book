@@ -192,10 +192,30 @@ function getRecipe(request, response){
 // This Function saves user favorite recipes
 function storeRecipe(request, response){
   console.log("body ", request.body);
+  saveRecipeSQL(request.body).then(results => {
+    response.redirect('/search');
+  }).catch(error => console.error(error));
 }
 
 //// ---- SQL query functions ----/////
 
+function saveRecipeSQL(saveFavoriteRecipeObj){
+  const sqlSaveQuery = "INSERT INTO user_recipes (user_id, recipe_id, title, image, cooking_time, servings, ingredients, instructions) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *";
+  let ingredientList = [];
+  let instructionList = [];
+  let sqlValues = [];
+
+  for(let i = 0; i<saveFavoriteRecipeObj.numOfIngred; i++){
+    ingredientList.push(saveFavoriteRecipeObj[`ingred_${i}`]);
+  }
+
+  for(let i = 0; i<saveFavoriteRecipeObj.numOfInstructions; i++){
+    instructionList.push(saveFavoriteRecipeObj[`instr_${i}`]);
+  }
+  
+  sqlValues = [userName, saveFavoriteRecipeObj.recipe_id, saveFavoriteRecipeObj.title, saveFavoriteRecipeObj.image, saveFavoriteRecipeObj.cooking_time, saveFavoriteRecipeObj.servings, ingredientList, instructionList];
+  return client.query(sqlSaveQuery, sqlValues);
+}
 
 //// ---- Error catching - server ---- ////
 

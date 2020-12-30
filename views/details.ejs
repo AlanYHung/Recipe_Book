@@ -29,7 +29,8 @@
             <!-- Section for Storing and Styling Image -->
             <div id="recipe_detail_img_body">
               <img id="recipe_detail_img" src="<%= recipeDetailObj.image %>" alt="<%= recipeDetailObj.image %>">
-              <%- include("./partials/recipe_form", {recipeDetailObj: recipeDetailObj}) %>
+              <%- include("./partials/recipe_form", {recipeDetailObj: recipeDetailObj,
+                                                     form_save_button_id: "save_favorites"}) %>
             </div>
 
             <!-- Section for Storing and Styling Cooking Instructions -->
