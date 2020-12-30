@@ -18,8 +18,20 @@
 }
 
 #all_page_header{
-  background-color: #D500FF;
+  background-color: #6C00FF;
   background-position: center;
+}
+
+#about_header{
+  background-color: #49FF00;
+}
+
+#search_header{
+  background-color: #FFA200;
+}
+
+#details_header{
+  background-color: #FFE400;
 }
 
 #headerTitleID{
@@ -86,18 +98,39 @@ a:visited{
 /* ======================================================================= */
 
 #all_page_footer{
-  background-image: url('../images/pantry_shelf.jpg');
+  /* background-image: url('../images/pantry_shelf.jpg'); */
+  background-color: #6C00FF;
   background-position: center;
+}
+
+#about_footer{
+  background-color: #49FF00;
 }
 
 #no_extra_footer{
   display: none;
 }
 
+#login_footer{
+  background-color: #00B6FF;
+}
+
+#results_footer{
+  background-color: #6C00FF;
+}
+
+#search_footer{
+  background-color: #FFA200;
+}
+
+#details_footer{
+  background-color: #FFE400;
+}
+
 #copyright{
   width: 100%;
   height: 100%;
-  background-color: rgba(105, 173, 233, 0.8);
+  /* background-color: rgba(78, 78, 104, 0.5); */
   text-align: center;
   padding-top: 10px;
 }

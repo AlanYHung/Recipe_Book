@@ -2,7 +2,7 @@
 /* ====================== Header & Footer Styling ======================== */
 /* ======================================================================= */
 
-#login_header, #login_footer{
+#login_header{
   background-color: #00B6FF;
   background-position: center;
   background-size: cover;
