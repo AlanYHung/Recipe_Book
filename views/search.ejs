@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./styles/modules/search.css" type="text/css">
   </head>
   <body>
-    <%- include("./partials/header", {pageHeader: "all_page_header",
+    <%- include("./partials/header", {pageHeader: "search_header",
                                       headerPurpose: "Search",
                                       search_link: "inside_search_page",
                                       aboutus_link: "aboutus_link_id",
@@ -66,7 +66,7 @@
           </section>
         <% } %>
     </main>
-    <%- include("./partials/footer", {page_footer: "all_page_footer",
+    <%- include("./partials/footer", {page_footer: "search_footer",
                                       extraFooter: "no_extra_footer",
                                       extraFooterText: ""}) %>
     <%- include("./partials/javascript", {jsFileName: 'search'}) %>
