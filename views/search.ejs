@@ -55,6 +55,16 @@
               </form>
             </section>
         </div>
+
+        <!-- Alert for No Search Matches -->
+        <% if(emptySearch) { %>
+          <section id="search_page_alert_modal">
+            <form id="search_page_alert_form">
+              <h2 id="search_page_alert_msg">No Matches Found!!</h2>
+              <button id="search_page_alert_button">Ok</button>
+            </form>
+          </section>
+        <% } %>
     </main>
     <%- include("./partials/footer", {page_footer: "all_page_footer",
                                       extraFooter: "no_extra_footer",
