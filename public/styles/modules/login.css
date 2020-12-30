@@ -3,16 +3,22 @@
 /* ======================================================================= */
 
 #login_header, #login_footer{
-  background-image: url("../../images/Kitchen_Tile.jpg");
+  background-color: #00B6FF;
   background-position: center;
+  background-size: cover;
 }
 
 /* ======================================================================= */
 /* ======================= Header Nav Bar Styling ======================== */
 /* ======================================================================= */
 
-#nav_login{
+.login_nav_links{
   display: none;
+}
+
+#nav_login, #nav_links{
+  height: 20%;
+  width: 100%;
 }
 
 /* ======================================================================= */
@@ -31,8 +37,9 @@
 #login_body{
   width: 100%;
   height: 100%;
-  background-image: url("../../images/Kitchen_Tile.jpg");
+  background-image: url("../../images/testcover.jpeg");
   background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +48,7 @@
 #fridge_body{
   width: 100%;
   height: 100%;
-  background-image: url("https://media.giphy.com/media/26FPqSW3io0nfgMUw/giphy.gif");
+  /* background-image: url("https://media.giphy.com/media/26FPqSW3io0nfgMUw/giphy.gif"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
