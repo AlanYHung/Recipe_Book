@@ -1,0 +1,44 @@
+#favorites_body{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/favoriteBackground.jpg');
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  #favorites_body_left, #favorites_body_right{
+    width: 0;
+    height: 100%;
+    background-image: url('https://media.giphy.com/media/3JgtnXdRhSflK/giphy.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  #favorites_body_center{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+  
+  #favorites_display_body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  @media(min-width:1000px){
+    #favorites_body_center{
+      width: 60%;
+    }
+  
+    #favorites_body_left, #favorites_body_right{
+      width: 20%;
+    }
+  }
