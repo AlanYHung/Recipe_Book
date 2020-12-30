@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="./styles/modules/login.css" type="text/css">
+  </head>
+  <body>
+    <%- include("./partials/header", {pageHeader: "login_header",
+                                      headerPurpose: "Login",
+                                      favorites_link: "favorites_link_id",
+                                      search_link: "search_link_id",
+                                      aboutus_link: "aboutus_link_id",
+                                      class2: "login_nav_links", 
+                                      navID: "nav_login"}) %>
+  <main>
+    <div id="login_body">
+      <section id="fridge_body">
+        <div id="left_fridge_door_open"></div>
+        <div id="fridge_background">
+          <form id="login_form_f" class="login_form" action="/login" method="POST">
+            <fieldset id="login_form_fs" class="login_form" form="login_form_f">
+              <Legend class="login_form">Please enter your User Name:</Legend>
+              <input id="login_form_input" class="login_form" type="text" name="user_login_id">
+              <button id="login_form_button" class="login_form">Login</button>
+            </fieldset>
+          </form>
+          <div id="left_fridge_door"></div>
+          <div id="right_fridge_door"></div>
+        </div>
+        <div id="right_fridge_door_open"></div>
+      </section>
+    </div>
+  </main>
+  <%- include("./partials/footer", {page_footer: "login_footer",
+                                    extraFooter: "vector_attribution",
+                                    extraFooterText: "Refrigerator Pic © vectorstock.com"}) %>
+  <%- include("./partials/javascript", {jsFileName: "login"}) %>
+</body>
+</html>

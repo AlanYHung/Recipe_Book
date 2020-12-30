@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="./styles/modules/details.css" type="text/css">
+  </head>
+  <body>
+    <%- include("./partials/header", {pageHeader: "details_header",
+                                      headerPurpose: "Recipe Details",
+                                      favorites_link: "favorites_link_id",
+                                      search_link: "search_link_id",
+                                      aboutus_link: "aboutus_link_id",
+                                      class2: "all_nav_links", 
+                                      navID: "navigation_bar"}) %>
+    <main>
+
+      <!-- Main Box to Store Background Image -->
+      <section id="recipe_detail_wallpaper">
+
+        <!-- Section for placing a transparent background to fade Background Image -->
+        <section id="recipe_detail_body">
+
+          <!-- Section for Storing and Styling Title -->
+          <div class="recipe_detail_element_body_styling">
+            <h2 id="recipe_detail_title" class="recipe_detail_element_styling"><%= recipeDetailObj.title %></h2>
+          </div>
+
+          <!-- Section for Storing and Styling Cooking Image and Instructions -->
+          <div id="recipe_detail_main_body">
+
+            <!-- Section for Storing and Styling Image -->
+            <div id="recipe_detail_img_body">
+              <img id="recipe_detail_img" src="<%= recipeDetailObj.image %>" alt="<%= recipeDetailObj.image %>">
+              <%- include("./partials/recipe_form", {recipeDetailObj: recipeDetailObj,
+                                                     showDelete: showDeleteButton}) %>
+            </div>
+
+            <!-- Section for Storing and Styling Cooking Instructions -->
+            <div id="recipe_detail_instructions_body">
+
+              <!-- Section for Ingredients and Cooking Time -->
+              <div id="recipe_detail_ingredients_list">
+                <h3 id="recipe_detail_cooking_time" class="recipe_detail_cooking_information">Cooking Time: <%= recipeDetailObj.cooking_time %> Minutes</h3>
+                <h3 id="recipe_detail_servings" class="recipe_detail_cooking_information">Servings: <%= recipeDetailObj.servings %></h3>
+               
+                <!-- Section for Ingredients List -->
+                <div id="recipe_detail_ingredient_list_body">
+                  <h3 id="recipe_detail_ingr_title" class="recipe_detail_cooking_information">Ingredients:</h3>
+                  <ul class="recipe_detail_instructions">
+                    <% recipeDetailObj.ingredients.forEach(ingredient => { %>
+                      <li class="recipe_detail_cooking_step"><%= ingredient %></li>
+                    <% }) %>
+                  </ul>
+                </div>
+              </div> 
+
+              <!-- Section for Cooking Instructions -->
+              <div id="recipe_detail_instructions_list">
+                <h3 id="recipe_detail_instructions_title" class="recipe_detail_cooking_information">Instructions:</h3>
+                <ul class="recipe_detail_instructions">
+                  <% recipeDetailObj.instructions.forEach(cookingStep => { %>
+                    <li class="recipe_detail_cooking_step"><%= cookingStep %></li>
+                  <% }) %>
+                </ul>
+              </div> 
+                             
+            </div>
+          </div>
+
+          <!-- Section for Storing Summary of Recipe -->
+          <!-- <div id="recipe_detail_summary_body" class="recipe_detail_element_body_styling"> -->
+
+            <!-- Gave Title it's own box for Styling purposes -->
+            <!-- <div id="recipe_detail_summary_title">
+              <h3 class="recipe_detail_cooking_information">Summary:</h3>
+            </div>
+            <p id="recipe_detail_summary" class="recipe_detail_element_styling"><%= recipeDetailObj.Summary %></p>
+          </div>
+        </section> -->
+      </section>
+    </main>
+    <%- include("./partials/footer", {page_footer: "details_footer",
+                                      extraFooter: "no_extra_footer",
+                                      extraFooterText: ""}) %>
+  </body>
+</html>

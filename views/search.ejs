@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="./styles/modules/search.css" type="text/css">
+  </head>
+  <body>
+    <%- include("./partials/header", {pageHeader: "search_header",
+                                      headerPurpose: "Search",
+                                      favorites_link: "favorites_link_id",
+                                      search_link: "inside_search_page",
+                                      aboutus_link: "aboutus_link_id",
+                                      class2: "all_nav_links", 
+                                      navID: "navigation_bar"}) %>
+    <main>
+        <div id = "search_page_body">
+            <section id = "search_form_parent">
+
+              <!-- Search Form Selection -->
+              <form id="search_form_type">
+                <label id="search_by_label">Search By:</label>
+                <select name="search_type" id="search_page_dropdown">
+                  <option value="dish">Dish</option>
+                  <option value="ingredients">Ingredients</option>
+                </select>
+              </form>
+
+              <!-- Search By: Dish Form -->
+              <form id="search_form_dish" action="/recipes" method="GET">
+                <input type="hidden" name="searchType" value="dishsearch">
+                <label id="dish_form_label" class="dish_search_elements">Recipe Search By: Dish</label>
+                <input id="dish_form_input" class="dish_search_elements" type="text" name="query">
+                <button id="dish_form_button" class="dish_search_elements">Search For Recipes</button>
+              </form>
+
+              <!-- Search By: Ingredients Form -->
+              <form id="search_form_ingredients" action="/recipes" method="GET">
+                <input type="hidden" name="searchType" value="ingredientsearch">
+                <label id="ingredients_form_label" class="ingredients_search_elements">Recipe Search By: Ingredients</label>
+
+                <!-- Section added in for formatting -->
+                <div id="add_remove_buttons">
+                  <button id="add_ingredients_button" class="ingredients_search_elements">Add Ingredient</button>
+                  <button id="remove_ingredients_button" class="ingredients_search_elements">Remove Ingredient</button>
+                </div>
+
+                <!-- Section for Ingredients Search Input -->
+                <div class="search_form_ingred_section">
+                  <label id='ingredient_1_label' class="ingredients_search_elements ingredients_search_label">Ingredient 1:</label>
+                  <input id="ingredient_1" class="ingredients_search_elements ingredients_search_input" type="text" name="ingredient_1">
+                </div>
+
+                <input id="ingredientTracker" type="hidden" name="numOfIngredients" value="1">
+
+                <button id="ingredients_form_button" class="ingredients_search_elements">Search For Recipes</button>
+              </form>
+            </section>
+        </div>
+
+        <!-- Alert for No Search Matches -->
+        <% if(emptySearch) { %>
+          <section id="search_page_alert_modal">
+            <form id="search_page_alert_form">
+              <h2 id="search_page_alert_msg">No Matches Found!!</h2>
+              <button id="search_page_alert_button">Ok</button>
+            </form>
+          </section>
+        <% } %>
+    </main>
+    <%- include("./partials/footer", {page_footer: "search_footer",
+                                      extraFooter: "no_extra_footer",
+                                      extraFooterText: ""}) %>
+    <%- include("./partials/javascript", {jsFileName: 'search'}) %>
+  </body>
+</html>
