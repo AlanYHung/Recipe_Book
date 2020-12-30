@@ -66,3 +66,15 @@ function removeIngredInput(removeIngredEvent){
     //do nothing
   }
 }
+
+/* ======================================================================= */
+/* ============================ Alert Button ============================= */
+/* ======================================================================= */
+
+const $alertOKButton = $('#search_page_alert_button');
+
+$alertOKButton.on('click', alertHandler);
+
+function alertHandler(){
+  $('#search_page_alert_modal').hide();
+}
