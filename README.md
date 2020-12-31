@@ -1,7 +1,7 @@
 # What's in our Fridge? A Recipe Cook Book
 
 **Author**: Alan Hung, Nick Abramowicz, Seid Mohamed, Wondwosen Tsige
-**Version**: 0.6.0
+**Version**: 1.0.0
 
 ## Overview
 This program is a basic full-stack application that allows you to search for Food Recipes based on ingredients and/or food names.  The app will let users personalize a cook book by allowing them to save recipes to their accounts, modify recipes, and share recipes for ratings if they so choose.
@@ -45,6 +45,13 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
 * Results List Partial Added (12/27/20 AYH)
 * Successfully attached search forms to server (12/27/20 D:NA Nav:AYH,SM,WT)
 * Completed retrieved data and completed objects (12/27/20 D:NA Nav:AYH,SM,WT)
+* Search Forms Front End attached to Server Backend (12/28/20 D:NA Nav:AYH,WT,SM)
+* Details Page Server Backend Functionality (12/28/20 D:AYH Nav:SM)
+* Details Page Front-end Functionality (12/29/20 AYH)
+* About US Page Design and Style (12/29/20 D:NA Nav:SM,WT)
+* CSS Redesign of Login and Search Page (12/29/20 D:NA Nav:AYH)
+* Save Recipe and Favorites Page (12/30/20 D:WT Nav:AYH)
+* About Us Page retouch up (12/30/20 D:NA Nav:Seid)
 
 ## Postgress SQL Database
 ### Database Name: recipe_book
@@ -117,9 +124,9 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * Day End: <u>3:30 pm</u>
   * Start time: <u>9:00 am</u>
   * Lunch Break: <u>12:00 pm </u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
+  * Finish Date: <u>12/28/20</u>
+  * Finish time: <u>12:00 pm</u>
+  * Actual time needed to complete: <u>1 Day</u>
 
 #### API Search Functionality - Frontend
   * Estimate of time needed to complete: <u>2 Hours</u>
@@ -149,6 +156,23 @@ CSS Stylesheets for the front end display pages rendered by ejs. Back end server
   * Estimate of time needed to complete: <u>4 Hours</u>
   * Start Date: <u>12/27/20</u>
   * Start time: <u>10:00 am</u>
-  * Finish Date: <u></u>
-  * Finish time: <u></u>
-  * Actual time needed to complete: <u></u>
+  * Finish Date: <u>12/30/20</u>
+  * Finish time: <u>4:00 pm</u>
+  * Actual time needed to complete: <u>3 days</u>
+
+#### Details Page Server + Front End
+  * Estimate of time needed to complete: <u>4 Hours</u>
+  * Start Date: <u>12/29/20</u>
+  * Start time: <u>9:00 am</u>
+  * Finish Date: <u>12/29/20</u>
+  * Finish time: <u>2:00 pm</u>
+  * Actual time needed to complete: <u>5 Hours</u>
+
+#### Favorites Page Server + Front End
+  * Estimate of time needed to complete: <u>3 Hours</u>
+  * Start Date: <u>12/30/20</u>
+  * Start time: <u>9:00 am</u>
+  * Finish Date: <u>12/30/20</u>
+  * Finish time: <u>1:37 pm</u>
+  * Actual time needed to complete: <u>4 Hours 37 Minutes</u>
+

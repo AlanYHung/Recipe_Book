@@ -6,6 +6,7 @@
   background-color: #00B6FF;
   background-position: center;
   background-size: cover;
+  font-family: 'Permanent Marker', cursive;
 }
 
 /* ======================================================================= */
@@ -148,3 +149,23 @@
   top: 50px;
 }
 
+/* ======================================================================= */
+/* ========================= Alert Form Styling ========================== */
+/* ======================================================================= */
+
+/* taken directly from w3schools.com */
+#click_me_modal, #modal_overlay{
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 60%;
+  top: 60%;
+  width: 188px;
+  height: 20px;
+}
+
+#click_me_modal_text{
+  width: 100%;
+  font-size: 1.3em;
+  font-weight: bolder;
+  text-align: center;
+}
