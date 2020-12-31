@@ -20,18 +20,22 @@
 #all_page_header{
   background-color: #6C00FF;
   background-position: center;
+  font-family: 'Permanent Marker', cursive;
 }
 
 #about_header{
   background-color: #49FF00;
+  font-family: 'Permanent Marker', cursive;
 }
 
 #search_header{
   background-color: #FFA200;
+  font-family: 'Permanent Marker', cursive;
 }
 
 #details_header{
   background-color: #FFE400;
+  font-family: 'Permanent Marker', cursive;
 }
 
 #headerTitleID{

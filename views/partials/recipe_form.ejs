@@ -12,8 +12,9 @@
   <% recipeDetailObj.instructions.forEach((instruction, index) => { %>
     <input type="hidden" name="instr_<%= index %>" value="<%= instruction %>">
   <% }) %>
-  <button class="details_form_button">Save Recipe</button>
   <% if(showDelete) { %>
     <button id="delete_favorites" class="details_form_button">Delete Recipe</button>
+  <% }else{ %>
+    <button class="details_form_button">Save Recipe</button>
   <% } %>
 </form>
